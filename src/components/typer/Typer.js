@@ -1,6 +1,7 @@
 import { GlobalHotKeys } from 'react-hotkeys';
 import { useState, useEffect } from 'react';
 import confettiAnimation from '../../util/confetti';
+import Preview from '../preview/Preview';
 import './Typer.css';
 
 const alpha = Array.from(Array(26)).map((e, i) => i + 97);
@@ -12,7 +13,7 @@ const keyMap = {
 
 const target = 'changworks';
 
-function Typer() {
+const Typer = () => {
     const [currentKey, setCurrentKey] = useState('');
     const [targetIndex, setTargetIndex] = useState(0);
 
@@ -42,10 +43,13 @@ function Typer() {
         <>
             <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
             <div className="typer">
-                <div className="typer-text">Type "changworks"</div>
+                <div className="typer-text">Type</div>
+                <span>"</span>
+                <Preview {...{ target, targetIndex }} />
+                <span>"</span>
             </div>
         </>
     );
-}
+};
 
 export default Typer;

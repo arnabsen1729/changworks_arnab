@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap');
 
-.typer-text {
-    text-align: center;
-    color: gray;
+.typer {
     font-size: 7em;
     font-family: 'Dongle', sans-serif;
+    display: flex;
+}
+
+.typer > span {
+    color: #4a4e69;
+}
+
+.typer-text {
+    text-align: center;
+    color: #4a4e69;
+    margin-right: 15px;
 }
