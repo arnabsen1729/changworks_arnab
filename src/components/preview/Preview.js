@@ -1,11 +1,11 @@
 import React from 'react';
 import './Preview.css';
 
-const Preview = ({ target, targetIndex }) => {
+const Preview = ({ target, targetIndex, style }) => {
     return (
         <div className="Typer">
             <span className="green-text">{target.slice(0, targetIndex)}</span>
-            <span className="text">{target.slice(targetIndex)}</span>
+            <span className={style}>{target.slice(targetIndex)}</span>
         </div>
     );
 };

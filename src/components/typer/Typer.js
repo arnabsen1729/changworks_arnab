@@ -14,6 +14,7 @@ const keyMap = {
 const target = 'changworks';
 
 const Typer = () => {
+    const [style, setStyle] = useState('text');
     const [currentKey, setCurrentKey] = useState('');
     const [targetIndex, setTargetIndex] = useState(0);
 
@@ -28,7 +29,13 @@ const Typer = () => {
     useEffect(() => {
         if (targetIndex === target.length) {
             confettiAnimation();
+            setStyle('green-text');
             setTargetIndex(0);
+        } else if (targetIndex === 0) {
+            setStyle((t) => {
+                if (t === 'text') return 'red-text';
+                else return t;
+            });
         }
     }, [targetIndex]);
 
@@ -39,13 +46,21 @@ const Typer = () => {
         });
     }, [currentKey]);
 
+    useEffect(() => {
+        if (style !== 'text') {
+            setTimeout(() => {
+                setStyle('text');
+            }, 500);
+        }
+    }, [style]);
+
     return (
         <>
             <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
             <div className="typer">
                 <div className="typer-text">Type</div>
                 <span>"</span>
-                <Preview {...{ target, targetIndex }} />
+                <Preview {...{ target, targetIndex, style }} />
                 <span>"</span>
             </div>
         </>
