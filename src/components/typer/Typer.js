@@ -36,6 +36,9 @@ const Typer = () => {
 
     useEffect(() => {
         if (style !== 'text') {
+            // this will make the entire text green/red for 0.5 sec
+            // green -> user correctly types the entire word
+            // red   -> user presses a wrong key
             setTimeout(() => {
                 setStyle('text');
             }, 500);
