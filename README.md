@@ -2,7 +2,7 @@
 
 ## Demo
 
-<Link_here>
+[Deployed Link](https://changworks-arnab.netlify.app/)
 
 ## Instructions
 
@@ -12,7 +12,7 @@ To run the project locally, follow these steps:
 
 ### `npm install`
 
-This will install all the packages needed for this application to run.
+This will install all the dependencies needed for this application to run.
 
 ### `npm start`
 
