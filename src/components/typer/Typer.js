@@ -9,11 +9,15 @@ const TARGET = 'changworks';
 
 const Typer = () => {
     const [style, setStyle] = useState('text');
-    const [currentKey, setCurrentKey] = useState('');
     const [targetIndex, setTargetIndex] = useState(0);
 
     const handlers = {
-        ALPHABET_PRESS: (event) => setCurrentKey(event.key),
+        ALPHABET_PRESS: (event) => {
+            setTargetIndex((t) => {
+                if (event.key === TARGET[t]) return t + 1;
+                else return 0;
+            });
+        },
     };
 
     useEffect(() => {
@@ -26,13 +30,6 @@ const Typer = () => {
             setStyle((t) => (t === 'text' ? 'red-text' : t));
         }
     }, [targetIndex]);
-
-    useEffect(() => {
-        setTargetIndex((t) => {
-            if (currentKey === TARGET[t]) return t + 1;
-            else return 0;
-        });
-    }, [currentKey]);
 
     useEffect(() => {
         if (style !== 'text') {
